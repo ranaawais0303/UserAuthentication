@@ -13,14 +13,15 @@ function LoginScreen() {
     setIsAuthenticating(true);
     try {
       const token = await login(email, password);
+      console.log(token);
       authCtx.authenticate(token);
     } catch (error) {
       Alert.alert(
         "Authentication failed ",
         "Could not log you in. Please check your credentials or try again later!!"
       );
+      setIsAuthenticating(false);
     }
-    setIsAuthenticating(false);
   }
   if (isAuthenticating) {
     return <LoadingOverlay message="Logging user in...." />;

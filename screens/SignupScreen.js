@@ -17,8 +17,8 @@ function SignupScreen() {
       authCtx.authenticate(token);
     } catch (error) {
       Alert.alert(error, "please check your input and try again leter ");
+      setIsAuthenticating(false);
     }
-    setIsAuthenticating(false);
   }
   if (isAuthenticating) {
     return <LoadingOverlay message="Creating User...." />;

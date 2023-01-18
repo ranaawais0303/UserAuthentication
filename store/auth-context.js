@@ -13,7 +13,7 @@ function AuthContextProvider({ children }) {
   const value = {
     token: authToken,
     // !!conver into boolean give the same result as token if token then true if not then false.
-    isAuthenticatd: !!authToken,
+    isAuthenticated: !!authToken,
     authenticate: authenticate,
     logout: logout,
   };
