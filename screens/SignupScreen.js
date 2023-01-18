@@ -12,7 +12,7 @@ function SignupScreen() {
     try {
       await createUser(email, password);
     } catch (error) {
-      Alert.alert(error, "please check your input and try again leter");
+      Alert.alert(error, "please check your input and try again leter ");
     }
     setIsAuthenticating(false);
   }
