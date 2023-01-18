@@ -3,14 +3,17 @@ import AuthContent from "../components/Auth/AuthContent";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
 import { login } from "../util/auth";
 import { Alert } from "react-native";
+import { useAuth } from "../store/auth-context";
 
 function LoginScreen() {
   const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const authCtx = useAuth();
   //this email is pass from authcontent component
   async function loginHandler({ email, password }) {
     setIsAuthenticating(true);
     try {
-      await login(email, password);
+      const token = await login(email, password);
+      authCtx.authenticate(token);
     } catch (error) {
       Alert.alert(
         "Authentication failed ",
