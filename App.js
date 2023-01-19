@@ -66,13 +66,13 @@ function Navigation() {
   );
 }
 function Root() {
-  const [isTryingLogin, setIsTryingLogin] = useState;
+  const [isTryingLogin, setIsTryingLogin] = useState(false);
   const authCtx = useAuth();
   useEffect(() => {
     async function fetchToken() {
       const storedToken = await AsyncStorage.getItem("token");
       if (storedToken) {
-        authCtx.authenticated(storedToken);
+        authCtx.authenticate(storedToken);
       }
       setIsTryingLogin(false);
     }
