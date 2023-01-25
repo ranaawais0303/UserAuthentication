@@ -27,7 +27,6 @@ function LoginScreen() {
     return <LoadingOverlay message="Logging user in...." />;
   }
   return <AuthContent isLogin onAuthenticate={loginHandler} />;
-  f;
 }
 
 export default LoginScreen;
